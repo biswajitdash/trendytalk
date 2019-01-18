@@ -1,0 +1,11 @@
+D:\trendy-talk\trendy-talk\bin\Debug\netcoreapp2.2\trendy-talk.deps.json
+D:\trendy-talk\trendy-talk\bin\Debug\netcoreapp2.2\trendy-talk.runtimeconfig.json
+D:\trendy-talk\trendy-talk\bin\Debug\netcoreapp2.2\trendy-talk.runtimeconfig.dev.json
+D:\trendy-talk\trendy-talk\bin\Debug\netcoreapp2.2\trendy-talk.dll
+D:\trendy-talk\trendy-talk\bin\Debug\netcoreapp2.2\trendy-talk.pdb
+D:\trendy-talk\trendy-talk\obj\Debug\netcoreapp2.2\trendy-talk.csprojAssemblyReference.cache
+D:\trendy-talk\trendy-talk\obj\Debug\netcoreapp2.2\trendy-talk.csproj.CoreCompileInputs.cache
+D:\trendy-talk\trendy-talk\obj\Debug\netcoreapp2.2\trendy-talk.AssemblyInfoInputs.cache
+D:\trendy-talk\trendy-talk\obj\Debug\netcoreapp2.2\trendy-talk.AssemblyInfo.cs
+D:\trendy-talk\trendy-talk\obj\Debug\netcoreapp2.2\trendy-talk.dll
+D:\trendy-talk\trendy-talk\obj\Debug\netcoreapp2.2\trendy-talk.pdb
