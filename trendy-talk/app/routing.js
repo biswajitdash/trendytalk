@@ -41,6 +41,11 @@ templatingApp.config(['$locationProvider', '$stateProvider', '$urlRouterProvider
                 url: '/Country',
                 templateUrl: './views/MasterPage/Country/Country.html',
                 controller: 'CountryController'
+            })
+            .state('AdminPanel', {
+                url: '/AdminPanel',
+                templateUrl: './views/MasterPage/AdminPanel/AdminPanel.html',
+                controller: 'AdminPanelController'
             });
 
         $urlRouterProvider.otherwise('/home');

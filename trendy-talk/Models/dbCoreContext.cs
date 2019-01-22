@@ -7,6 +7,9 @@ namespace trendytalk.Models
     public partial class dbCoreContext : DbContext
     {
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<CategoryModel> Category { get; set; }
+        public virtual DbSet<CountryModel> Country { get; set; }
+
         public dbCoreContext(DbContextOptions<dbCoreContext> options) :
              base(options)
         {
@@ -30,6 +33,24 @@ namespace trendytalk.Models
                 entity.Property(e => e.Name).HasMaxLength(250);
 
                 entity.Property(e => e.Phone).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<CategoryModel>(entity =>
+            {
+                entity.Property(e => e.CategoryId).HasMaxLength(50);
+                entity.Property(e => e.CategoryName).HasMaxLength(250);
+                entity.Property(e => e.IsActive).HasMaxLength(1);
+                entity.Property(e => e.CreatedOn).HasMaxLength(50);
+                entity.Property(e => e.ModifiedOn).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<CountryModel>(entity =>
+            {
+                entity.Property(e => e.CountryId).HasMaxLength(50);
+                entity.Property(e => e.CountryName).HasMaxLength(250);
+                entity.Property(e => e.IsActive).HasMaxLength(1);
+                entity.Property(e => e.CreatedOn).HasMaxLength(50);
+                entity.Property(e => e.ModifiedOn).HasMaxLength(50);
             });
         }
     }

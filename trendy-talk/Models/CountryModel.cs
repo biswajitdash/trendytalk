@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace trendytalk.Models
 {
-    public partial class Category
+    public class CountryModel
     {
-        public int CategoryId { get; set; }
-        public string CategoryName { get; set; }
+        [Key]
+        public int CountryId { get; set; }
+        public string CountryName { get; set; }
         public int IsActive { get; set; }
         public DateTime CreatedOn { get; set; }
         public DateTime? ModifiedOn { get; set; }

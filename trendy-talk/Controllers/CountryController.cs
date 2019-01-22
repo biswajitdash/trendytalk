@@ -12,8 +12,8 @@ namespace trendytalk.Controllers
     [Route("api/Country"), Produces("application/json"), EnableCors("AppPolicy")]
     public class CountryController : Controller
     {
-        private CountryContext _ctx = null;
-        public CountryController(CountryContext context)
+        private dbCoreContext _ctx = null;
+        public CountryController(dbCoreContext context)
         {
             _ctx = context;
         }
@@ -23,7 +23,7 @@ namespace trendytalk.Controllers
         [HttpGet, Route("GetCountry")]
         public async Task<object> GetCountry()
         {
-            List<Country> countries = null;
+            List<CountryModel> countries = null;
             object result = null;
             try
             {
@@ -45,9 +45,9 @@ namespace trendytalk.Controllers
 
         // GET api/Country/GetCountryByID/5
         [HttpGet, Route("GetCountryByID/{id}")]
-        public async Task<Country> GetCountryByID(int id)
+        public async Task<CountryModel> GetCountryByID(int id)
         {
-            Country country = null;
+            CountryModel country = null;
             try
             {
                 using (_ctx)
@@ -65,7 +65,7 @@ namespace trendytalk.Controllers
 
         // POST api/Country/PostCountry
         [HttpPost, Route("PostCountry")]
-        public async Task<object> PostCountry([FromBody]Country model)
+        public async Task<object> PostCountry([FromBody]CountryModel model)
         {
             object result = null; string message = "";
             if (model == null)
@@ -104,7 +104,7 @@ namespace trendytalk.Controllers
 
         // PUT api/Country/PutCountry/5
         [HttpPut, Route("PutCountry/{id}")]
-        public async Task<object> PutCountry(int id, [FromBody]Country model)
+        public async Task<object> PutCountry(int id, [FromBody]CountryModel model)
         {
             object result = null; string message = "";
             if (model == null)

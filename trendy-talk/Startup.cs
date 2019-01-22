@@ -36,8 +36,6 @@ namespace trendytalk
             //var connection = @"Data Source=208.91.198.174;Initial Catalog=espouse_edurp;Persist Security Info=True;User ID=espouseedurp;Password=Oumu108!;";
             var connection = @"Server = localhost; Database = trendy-talk; Uid = root; Pwd = Prodata123;";
             services.AddDbContext<dbCoreContext>(options => options.UseMySQL(connection));
-            services.AddDbContext<CategoryContext>(options => options.UseMySQL(connection));
-            services.AddDbContext<CountryContext>(options => options.UseMySQL(connection));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

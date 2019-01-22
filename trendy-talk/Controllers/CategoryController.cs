@@ -12,8 +12,8 @@ namespace trendytalk.Controllers
     [Route("api/Category"), Produces("application/json"), EnableCors("AppPolicy")]
     public class CategoryController : Controller
     {
-        private CategoryContext _ctx = null;
-        public CategoryController(CategoryContext context)
+        private dbCoreContext _ctx = null;
+        public CategoryController(dbCoreContext context)
         {
             _ctx = context;
         }
@@ -23,7 +23,7 @@ namespace trendytalk.Controllers
         [HttpGet, Route("GetCategory")]
         public async Task<object> GetCategory()
         {
-            List<Category> categories = null;
+            List<CategoryModel> categories = null;
             object result = null;
             try
             {
@@ -45,9 +45,9 @@ namespace trendytalk.Controllers
 
         // GET api/Category/GetCategoryByID/5
         [HttpGet, Route("GetCategoryByID/{id}")]
-        public async Task<Category> GetCategoryByID(int id)
+        public async Task<CategoryModel> GetCategoryByID(int id)
         {
-            Category category = null;
+            CategoryModel category = null;
             try
             {
                 using (_ctx)
@@ -65,7 +65,7 @@ namespace trendytalk.Controllers
 
         // POST api/Category/PostCategory
         [HttpPost, Route("PostCategory")]
-        public async Task<object> PostCategory([FromBody]Category model)
+        public async Task<object> PostCategory([FromBody]CategoryModel model)
         {
             object result = null; string message = "";
             if (model == null)
@@ -104,7 +104,7 @@ namespace trendytalk.Controllers
 
         // PUT api/Category/PutCategory/5
         [HttpPut, Route("PutCategory/{id}")]
-        public async Task<object> PutCategory(int id, [FromBody]Category model)
+        public async Task<object> PutCategory(int id, [FromBody]CategoryModel model)
         {
             object result = null; string message = "";
             if (model == null)
