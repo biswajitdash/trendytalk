@@ -1,11 +1,13 @@
 ﻿templatingApp.controller('AdminPanelController', ['$scope', '$http', function ($scope, $http) {
     $scope.title = "AdminPanelController";
-    $scope.ListCategory = null;
-    $scope.ListCountry = null;
-    $scope.categoryModel = {};
-    $scope.categoryModel.categoryId = 0;
-    $scope.countryModel = {};
-    $scope.countryModel.countryId = 0;
+    $scope.ListCategory = [];
+    $scope.ListCountry = [];
+    $scope.selectedCategory = null;
+    $scope.selectedCountry = null;
+    //$scope.categoryModel = {};
+    //$scope.categoryModel.categoryId = 0;
+    //$scope.countryModel = {};
+    //$scope.countryModel.countryId = 0;
     $scope.newsChannels = [];
     $scope.Name = null;
     $scope.adminPanel = {};
@@ -39,8 +41,7 @@
         //Add the new item to the Array.
         var newsChannel = {};
         newsChannel.Name = $scope.Name;
-        $scope.newsChannels.push(newsChannel);
-
+        $scope.newsChannels.push(newsChannel);        
         //Clear the TextBoxes.
         $scope.Name = "";
     };
@@ -55,15 +56,32 @@
     }
 
     $scope.createNewsChannels = function () {
-        $http({
-            method: 'DELETE',
-            url: '/api/Country/DeleteCountryByID/' + parseInt(country.countryId)
-        }).then(function (response) {
-            $scope.reset();
-            getallData();
-        }, function (error) {
-            console.log(error);
+
+        var channelNames = [];
+        $.each($scope.newsChannels, function (index, value) {
+            channelNames[index] = $scope.newsChannels[index].Name;
         });
+        $scope.adminPanel.NewsChannels = channelNames;
+        $scope.adminPanel.CategoryId = $scope.selectedCategory.categoryId;
+        $scope.adminPanel.CountryId = $scope.selectedCountry.countryId;
+        //$scope.mergedObject.NewsChannels = channelNames;
+
+        if (confirm($scope.adminPanel)) {
+            $http({
+                method: 'POST',
+                url: '/api/AdminPanel/PostAdminPanel/',
+                datatype: 'json',
+                data: { model: $scope.adminPanel },
+                headers: {
+                    "Content-Type": "application/json"
+                }  
+            }).then(function (response) {
+                $scope.reset();
+                getallData();
+            }, function (error) {
+                console.log(error);
+            });
+        }
     };
 
     ////******=========Get Single Category=========******

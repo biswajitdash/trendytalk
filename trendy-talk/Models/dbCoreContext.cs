@@ -9,6 +9,8 @@ namespace trendytalk.Models
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<CategoryModel> Category { get; set; }
         public virtual DbSet<CountryModel> Country { get; set; }
+        public virtual DbSet<AdminPanelModel> AdminPanel { get; set; }
+        public virtual DbSet<NewsChannels> NewsChannel { get; set; }
 
         public dbCoreContext(DbContextOptions<dbCoreContext> options) :
              base(options)
@@ -48,6 +50,28 @@ namespace trendytalk.Models
             {
                 entity.Property(e => e.CountryId).HasMaxLength(50);
                 entity.Property(e => e.CountryName).HasMaxLength(250);
+                entity.Property(e => e.IsActive).HasMaxLength(1);
+                entity.Property(e => e.CreatedOn).HasMaxLength(50);
+                entity.Property(e => e.ModifiedOn).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<AdminPanelModel>(entity =>
+            {
+                entity.Property(e => e.AdminPanelId).HasMaxLength(50);
+                entity.Property(e => e.CategoryId).HasMaxLength(50);
+                entity.Property(e => e.CountryId).HasMaxLength(50);
+                entity.Property(e => e.Topic).HasMaxLength(500);
+                entity.Property(e => e.HyperLink).HasMaxLength(500);
+                entity.Property(e => e.NewsChannelId).HasMaxLength(50);
+                entity.Property(e => e.IsActive).HasMaxLength(1);
+                entity.Property(e => e.CreatedOn).HasMaxLength(50);
+                entity.Property(e => e.ModifiedOn).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<NewsChannels>(entity =>
+            {
+                entity.Property(e => e.NewsChannelId).HasMaxLength(50);
+                entity.Property(e => e.NewsChannelName).HasMaxLength(250);
                 entity.Property(e => e.IsActive).HasMaxLength(1);
                 entity.Property(e => e.CreatedOn).HasMaxLength(50);
                 entity.Property(e => e.ModifiedOn).HasMaxLength(50);

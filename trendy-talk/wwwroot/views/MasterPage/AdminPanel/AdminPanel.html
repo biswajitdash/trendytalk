@@ -9,7 +9,7 @@
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label for="cname" class="control-label">Category</label>
-                            <select class="form-control" data-ng-options="fps.categoryName for fps in ListCategory" data-ng-model="categoryModel">
+                            <select class="form-control" data-ng-options="fps.categoryName for fps in ListCategory" ng-model="selectedCategory">
                                 <option>--Select--</option>
                             </select>
                         </div>
@@ -17,7 +17,7 @@
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label for="cname" class="control-label">Country</label>
-                            <select class="form-control" data-ng-options="fps.countryName for fps in ListCountry" data-ng-model="countryModel">
+                            <select class="form-control" data-ng-options="fps.countryName for fps in ListCountry" ng-model="selectedCountry">
                                 <option>--Select--</option>
                             </select>
                         </div>
@@ -45,7 +45,13 @@
                             <tbody ng-repeat="m in newsChannels">
                                 <tr>
                                     <td><input class="form-control" type="text" value="{{m.Name}}" /></td>
-                                    <td><input class="btn btn-primary btn-xs pull-right" type="button" ng-click="Remove($index)" value="Remove" /></td>
+                                    <td>
+                                        <button class="btn btn-danger btn-xs pull-right" id="DeleteFile" name="DeleteFile" type="button" ng-click="Remove($index)">
+                                            <i class="fa fa-trash" data-toggle="tooltip" title="Delete"></i>
+                                        </button>
+
+                                        <!--<input class="btn btn-primary btn-xs pull-right" type="button" ng-click="Remove($index)" value="Remove" />-->
+                                    </td>
                                 </tr>
                             </tbody>
                             <tfoot>
