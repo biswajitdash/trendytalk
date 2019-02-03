@@ -87,6 +87,7 @@ namespace WebApi.Controllers
             }
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -95,13 +96,14 @@ namespace WebApi.Controllers
             return Ok(userDtos);
         }
 
-        [HttpGet("{id}")]
+        [AllowAnonymous]
+        [HttpGet("id")]
         public IActionResult GetById(int id)
         {
-            var user =  _userService.GetById(id);
+            var user = _userService.GetById(id);
             var userDto = _mapper.Map<UserDto>(user);
             return Ok(userDto);
-        }
+        }      
 
         [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody]UserDto userDto)

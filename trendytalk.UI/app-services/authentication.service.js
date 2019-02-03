@@ -42,22 +42,23 @@
 
             $http.post(apiPrefix + '/Users/authenticate', { username: username, password: password }).then(function (response) {
 
-                if (response !== null && response.status == 200) {
-                    response = { success: true };
-                } else {
-                    response = { success: false, message: 'Username or password is incorrect' };
-                }
+                //if (response !== null && response.status == 200) {
+                //    response = { success: true };
+                //} else {
+                //    response = { success: false, message: 'Username or password is incorrect' };
+                //}
                 callback(response);
 
             });
         }
 
-        function SetCredentials(username, password) {
-            var authdata = Base64.encode(username + ':' + password);
+        function SetCredentials(data, password) {
+            var authdata = Base64.encode(data.username + ':' + password);
 
             $rootScope.globals = {
                 currentUser: {
-                    username: username,
+                    userid: data.id,
+                    username: data.username,
                     authdata: authdata
                 }
             };

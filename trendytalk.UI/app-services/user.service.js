@@ -11,7 +11,7 @@
         var apiPrefix = 'http://localhost:53160';
         service.GetAll = GetAll;
         service.GetById = GetById;
-        service.GetByUsername = GetByUsername;
+        //service.GetByUsername = GetByUsername;
         service.Create = Create;
         service.Update = Update;
         service.Delete = Delete;
@@ -23,23 +23,23 @@
         }
 
         function GetById(id) {
-            return $http.get(apiPrefix + '/Users/users/' + id).then(handleSuccess, handleError('Error getting user by id'));
+            return $http.get(apiPrefix + '/Users/id?id=' + id).then(handleSuccess, handleError('Error getting user by id'));
         }
 
-        function GetByUsername(username) {
-            return $http.get(apiPrefix + '/Users/users/' + username).then(handleSuccess, handleError('Error getting user by username'));
-        }
+        //function GetByUsername(username) {
+        //    return $http.get(apiPrefix + '/Users/' + username).then(handleSuccess, handleError('Error getting user by username'));
+        //}
 
         function Create(user) {
             return $http.post(apiPrefix + '/Users/register', user).then(handleSuccess, handleError('Error creating user'));
         }
 
         function Update(user) {
-            return $http.put(apiPrefix + '/Users/users/' + user.id, user).then(handleSuccess, handleError('Error updating user'));
+            return $http.put(apiPrefix + '/Users/' + user.id, user).then(handleSuccess, handleError('Error updating user'));
         }
 
         function Delete(id) {
-            return $http.delete(apiPrefix + '/Users/users/' + id).then(handleSuccess, handleError('Error deleting user'));
+            return $http.delete(apiPrefix + '/Users/' + id).then(handleSuccess, handleError('Error deleting user'));
         }
 
         // private functions

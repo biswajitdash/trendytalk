@@ -52,7 +52,7 @@ namespace WebApi.Services
         public User GetById(int id)
         {
             return _context.Users.Find(id);
-        }
+        }           
 
         public User Create(User user, string password)
         {
