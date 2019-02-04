@@ -21,7 +21,7 @@
         }
 
         function loadCurrentUser() {
-            UserService.GetByUsername($rootScope.globals.currentUser.username)
+            UserService.GetById($rootScope.globals.currentUser.userid)
                 .then(function (user) {
                     vm.user = user;
                 });
