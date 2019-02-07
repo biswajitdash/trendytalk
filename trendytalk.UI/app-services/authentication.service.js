@@ -57,6 +57,7 @@
 
             $rootScope.globals = {
                 currentUser: {
+                    isSignedIn: true,
                     userid: data.id,
                     username: data.username,
                     authdata: authdata
