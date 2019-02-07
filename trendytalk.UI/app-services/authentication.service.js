@@ -56,7 +56,7 @@
             var authdata = Base64.encode(data.username + ':' + password);
 
             $rootScope.globals = {
-                currentUser: {
+                currentUser: {                    
                     userid: data.id,
                     username: data.username,
                     authdata: authdata
