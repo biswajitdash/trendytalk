@@ -14,28 +14,28 @@
                 templateUrl: 'login/login.view.html',
                 controllerAs: 'vm'
             })
-
             .when('/home', {
                 controller: 'HomeController',
                 templateUrl: 'home/home.view.html',
                 controllerAs: 'vm'
-            })
-            
+            })            
             .when('/register', {
                 controller: 'RegisterController',
                 templateUrl: 'register/register.view.html',
                 controllerAs: 'vm'
             })
-
             .when('/country', {
                 controller: 'CountryController',
                 templateUrl: 'country/country.view.html',
                 controllerAs: 'vm'
             })
-
             .when('/category', {
                 controller: 'CategoryController',
                 templateUrl: 'category/category.view.html'
+            })
+            .when('/adminpanel', {
+                controller: 'AdminPanelController',
+                templateUrl: 'adminpanel/adminpanel.view.html'
             })
 
             .otherwise({ redirectTo: '/login' });

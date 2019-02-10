@@ -1,0 +1,84 @@
+﻿<div class="container-fluid">
+    <div class="navbar-header">
+        <h3>Admin Panel</h3>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="frmAdminPanel" novalidate>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label for="cname" class="control-label">Category</label>
+                            <select class="form-control" data-ng-options="fps.categoryName for fps in ListCategory" ng-model="selectedCategory">
+                                <option>--Select--</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label for="cname" class="control-label">Country</label>
+                            <select class="form-control" data-ng-options="fps.countryName for fps in ListCountry" ng-model="selectedCountry">
+                                <option>--Select--</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label for="cname" class="control-label">Topic</label>
+                            <input type="text" class="form-control" name="topic" id="topic" placeholder="Topic">
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label for="cname" class="control-label">HyperLink</label>
+                            <input type="text" class="form-control" name="hyperlink" id="hyperlink" placeholder="HyperLink">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table>
+                            <tr>
+                                <th class="control-label">News Channel</th>
+                                <th></th>
+                            </tr>
+                            <tbody ng-repeat="m in newsChannels" style="padding-top:2%;padding-bottom:2%;">
+                                <tr>
+                                    <td><input class="form-control" type="text" value="{{m.Name}}" /></td>
+                                    <td style="width:2%;"></td>
+                                    <td>
+                                        <button class="btn btn-danger btn-xs pull-right" id="DeleteFile" name="DeleteFile" type="button" ng-click="Remove($index)">
+                                            <i class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Delete"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>
+                                        <input class="form-control" type="text" ng-model="Name" name="channelName" placeholder="" required />
+                                        <span class="error" ng-show="(frmAdminPanel.$dirty||submitted) && frmAdminPanel.channelName.$error.required">Channel name is Required</span>
+                                    </td>
+                                    <td style="width:2%;"></td>
+                                    <td>
+                                        <button class="btn btn-primary btn-xs pull-right" id="DeleteFile" ng-disabled="frmAdminPanel.$invalid" name="DeleteFile" type="button" ng-click="Add()">
+                                            <i class="glyphicon glyphicon-plus" data-toggle="tooltip" title="Add"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <button type="submit" class="btn btn-success pull-right" ng-click="createNewsChannels()">
+                            Save
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <span class="warning">{{resmessage}}</span>
+        </div>
+    </div>
+</div>

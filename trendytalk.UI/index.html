@@ -21,43 +21,43 @@
             </div>
             <ul class="list-unstyled components">
                 <!--<li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
-                        <i class="glyphicon glyphicon-home"></i>
-                        Home
-                    </a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li><a href="#">Home 1</a></li>
-                        <li><a href="#">Home 2</a></li>
-                        <li><a href="#">Home 3</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="glyphicon glyphicon-briefcase"></i>
-                        About
-                    </a>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
-                        <i class="glyphicon glyphicon-duplicate"></i>
-                        Pages
-                    </a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li><a href="#">Page 1</a></li>
-                        <li><a href="#">Page 2</a></li>
-                        <li><a href="#">Page 3</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="glyphicon glyphicon-link"></i>
-                        Portfolio
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="glyphicon glyphicon-paperclip"></i>
-                        FAQ
-                    </a>
-                </li>-->
+        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
+            <i class="glyphicon glyphicon-home"></i>
+            Home
+        </a>
+        <ul class="collapse list-unstyled" id="homeSubmenu">
+            <li><a href="#">Home 1</a></li>
+            <li><a href="#">Home 2</a></li>
+            <li><a href="#">Home 3</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">
+            <i class="glyphicon glyphicon-briefcase"></i>
+            About
+        </a>
+        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
+            <i class="glyphicon glyphicon-duplicate"></i>
+            Pages
+        </a>
+        <ul class="collapse list-unstyled" id="pageSubmenu">
+            <li><a href="#">Page 1</a></li>
+            <li><a href="#">Page 2</a></li>
+            <li><a href="#">Page 3</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">
+            <i class="glyphicon glyphicon-link"></i>
+            Portfolio
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="glyphicon glyphicon-paperclip"></i>
+            FAQ
+        </a>
+    </li>-->
                 <li>
                     <a href="#!/category">
                         <i class="glyphicon glyphicon-th"></i>
@@ -68,6 +68,12 @@
                     <a href="#!/country">
                         <i class="glyphicon glyphicon-flag"></i>
                         Country
+                    </a>
+                </li>
+                <li>
+                    <a href="#!/adminpanel">
+                        <i class="glyphicon glyphicon-user"></i>
+                        Admin Panel
                     </a>
                 </li>
             </ul>
@@ -92,7 +98,7 @@
                     </div>
                 </div>
             </nav>
-            <div class="col-sm-8 col-sm-offset-2 padding-top-20">
+            <div class="col-sm-12">
                 <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
                 <div ng-view>
 
@@ -115,6 +121,7 @@
     <script src="app-services/user.service.js"></script>
     <script src="app-services/category.service.js"></script>
     <script src="app-services/country.service.js"></script>
+    <script src="app-services/adminpanel.service.js"></script>
 
     <!-- Fake user service for demo that uses local storage -->
     <!--<script src="app-services/user.service.local-storage.js"></script>-->
@@ -123,7 +130,8 @@
     <script src="login/login.controller.js"></script>
     <script src="register/register.controller.js"></script>
     <script src="category/category.controller.js"></script>
-    <script src="country/country.controller.js"></script>
+    <script src="country/country.controller.js"></script> 
+    <script src="adminpanel/adminpanel.controller.js"></script>
 
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>

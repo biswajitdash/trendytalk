@@ -13,6 +13,7 @@ namespace WebApi.Helpers
 
         public DbSet<User> Users { get; set; }
         public DbSet<Category> category { get; set; }
-        public DbSet<Country> country { get; set; }        
+        public DbSet<Country> country { get; set; }
+        public DbSet<AdminPanel> adminpanel { get; set; }
     }
 }
