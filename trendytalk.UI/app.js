@@ -27,6 +27,17 @@
                 controllerAs: 'vm'
             })
 
+            .when('/country', {
+                controller: 'CountryController',
+                templateUrl: 'country/country.view.html',
+                controllerAs: 'vm'
+            })
+
+            .when('/category', {
+                controller: 'CategoryController',
+                templateUrl: 'category/category.view.html'
+            })
+
             .otherwise({ redirectTo: '/login' });
     }
 

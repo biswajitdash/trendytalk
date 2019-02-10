@@ -39,17 +39,23 @@
             //        callback(response);
             //    });
 
-
             $http.post(apiPrefix + '/Users/authenticate', { username: username, password: password }).then(function (response) {
-
-                //if (response !== null && response.status == 200) {
-                //    response = { success: true };
-                //} else {
-                //    response = { success: false, message: 'Username or password is incorrect' };
-                //}
                 callback(response);
-
+            }, function (response) {
+                callback(response);
             });
+
+
+            //$http.post(apiPrefix + '/Users/authenticate', { username: username, password: password }).then(function (response) {
+
+            //    //if (response !== null && response.status == 200) {
+            //    //    response = { success: true };
+            //    //} else {
+            //    //    response = { success: false, message: 'Username or password is incorrect' };
+            //    //}
+            //    callback(response);
+
+            //});
         }
 
         function SetCredentials(data, password) {
