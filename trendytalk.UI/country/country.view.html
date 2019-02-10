@@ -1,0 +1,49 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4">
+            <h3>Add Country</h3>
+            <form name="frmCountry" novalidate>
+                <input type="hidden" ng-model="countryModel.countryId" name="uid" />
+                <div class="form-group">
+                    <label for="cname" class="control-label">Country Name</label>
+                    <input type="text" class="form-control" ng-model="countryModel.countryName" name="cname" placeholder="" required />
+                    <span class="error" ng-show="(frmCountry.$dirty||submitted) && frmCountry.cname.$error.required">Country name is Required</span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-danger" ng-click="reset()">Reset</button>
+                    <button type="submit" class="btn btn-primary" ng-click="saveCountry()" ng-disabled="frmCountry.$invalid"
+                            ng-If="countryModel.countryId == 0">
+                        Create
+                    </button>
+                    <button type="submit" class="btn btn-success" ng-click="updateCountry()" ng-disabled="frmCountry.$invalid"
+                            ng-If="countryModel.countryId > 0">
+                        Update
+                    </button>
+                </div>
+            </form>
+            <span class="warning">{{resmessage}}</span>
+        </div>
+        <div class="col-sm-8">
+            <h3>Country List</h3>
+            <table style="width:100%" class="table table-striped">
+                <tr>
+                    <th>Sr.</th>
+                    <th>Country Name</th>
+                    <th></th>
+                </tr>
+                <tr ng-repeat="item in ListCountry">
+                    <td>{{ $index+1 }}</td>
+                    <td>{{ item.countryName }}</td>
+                    <td>
+                        <a href="#" ng-click="getCountry(item)" title="Edit Record" class="btn btn-primary btn-xs pull-right">
+                            Edit
+                        </a>
+                        <a href="#" ng-click="deleteCountry(item)" title="Delete Record" class="btn btn-danger btn-xs pull-right">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
