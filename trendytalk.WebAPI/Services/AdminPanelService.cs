@@ -30,8 +30,25 @@ namespace WebApi.Services
 
             _context.adminpanel.Add(adminpanel);
             _context.SaveChanges();
+            
+            foreach (NewsChannel nc in adminpanel.NewsChannels)
+            {
+                _context.newschannels.Add(nc);
+            };            
 
             return adminpanel;
         }
+
+        //public NewsChannel CreateNewsChannel(NewsChannel newsChannel)
+        //{
+        //    //validation
+        //    if (string.IsNullOrWhiteSpace(newsChannel.NewsChannelName))
+        //        throw new AppException("Name is required");
+
+        //    _context.newschannels.Add(newsChannel);
+        //    _context.SaveChanges();
+
+        //    return newsChannel;
+        //}
     }
 }

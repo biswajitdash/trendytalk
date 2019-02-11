@@ -42,7 +42,8 @@ namespace WebApi.Controllers
             try
             {
                 // save 
-                _adminpanelService.Create(adminpanel);
+                var adminpanelId = _adminpanelService.Create(adminpanel);
+
                 return Ok();
             }
             catch (AppException ex)

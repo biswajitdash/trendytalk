@@ -15,5 +15,6 @@ namespace WebApi.Helpers
         public DbSet<Category> category { get; set; }
         public DbSet<Country> country { get; set; }
         public DbSet<AdminPanel> adminpanel { get; set; }
+        public DbSet<NewsChannel> newschannels { get; set; }        
     }
 }
