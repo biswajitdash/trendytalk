@@ -13,6 +13,8 @@
         $scope.ListCountry = [];
         $scope.selectedCategory = null;
         $scope.selectedCountry = null;
+        $scope.topic = null;
+        $scope.hyperlink = null;
         //$scope.categoryModel = {};
         //$scope.categoryModel.categoryId = 0;
         //$scope.countryModel = {};
@@ -47,7 +49,9 @@
         $scope.Add = function () {
             //Add the new item to the Array.
             var newsChannel = {};
-            newsChannel.Name = $scope.Name;
+            newsChannel.NewsChannelName = $scope.Name;
+            newsChannel.CreatedOn = new Date();
+            newsChannel.IsActive = 1;
             $scope.newsChannels.push(newsChannel);
             //Clear the TextBoxes.
             $scope.Name = "";
@@ -60,6 +64,28 @@
                 //Remove the item from Array using Index.
                 $scope.newsChannels.splice(index, 1);
             }
+        }
+
+        $scope.createNewsChannels = function () {
+
+            var d = new Date();
+            $scope.adminPanel = {};
+
+            $scope.adminPanel.CategoryId = $scope.selectedCategory.categoryId;
+            $scope.adminPanel.CountryId = $scope.selectedCountry.countryId;
+            $scope.adminPanel.Topic = $scope.topic;
+            $scope.adminPanel.HyperLink = $scope.hyperlink;
+            $scope.adminPanel.IsActive = 1;
+            $scope.adminPanel.CreatedOn = new Date();
+            $scope.adminPanel.NewsChannels = $scope.newsChannels;
+
+            //var json = angular.toJson($scope.adminPanel);
+            
+            AdminPanelService.Create($scope.adminPanel).then(function (response) {
+                
+            }, function (error) {
+                console.log(error);
+            });
         }
     }
 

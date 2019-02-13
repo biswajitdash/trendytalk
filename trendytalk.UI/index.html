@@ -81,22 +81,33 @@
         <!-- Page Content Holder -->
         <div id="content">
             <nav class="navbar navbar-default" ng-show="globals.currentUser.isSignedIn">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-                            <i class="glyphicon glyphicon-align-left"></i>
-                        </button>
-
+                <div class="col-sm-12">
+                    <div class="col-sm-7">
+                        <div class="navbar-header">
+                            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                                <i class="glyphicon glyphicon-align-left"></i>
+                            </button>
+                        </div>
                     </div>
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                <a href="#!/login" class="glyphicon glyphicon-log-out" data-toggle="tooltip" title="Log Out">
-                                </a>
-                            </li>
-                        </ul>
+                    <div class="col-sm-3">
+                        <h5>Hi {{globals.currentUser.username}}!</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <a href="#!/login" class="glyphicon glyphicon-log-out" data-toggle="tooltip" title="Log Out">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
+                <!--<div class="container-fluid">
+
+                    
+                    
+                </div>-->
             </nav>
             <div class="col-sm-12">
                 <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>

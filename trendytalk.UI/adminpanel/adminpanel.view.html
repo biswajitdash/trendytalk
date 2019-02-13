@@ -25,13 +25,13 @@
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label for="cname" class="control-label">Topic</label>
-                            <input type="text" class="form-control" name="topic" id="topic" placeholder="Topic">
+                            <input type="text" class="form-control" name="topic" id="topic" placeholder="Topic" ng-model="topic">
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label for="cname" class="control-label">HyperLink</label>
-                            <input type="text" class="form-control" name="hyperlink" id="hyperlink" placeholder="HyperLink">
+                            <input type="text" class="form-control" name="hyperlink" id="hyperlink" placeholder="HyperLink" ng-model="hyperlink">
                         </div>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                             </tr>
                             <tbody ng-repeat="m in newsChannels" style="padding-top:2%;padding-bottom:2%;">
                                 <tr>
-                                    <td><input class="form-control" type="text" value="{{m.Name}}" /></td>
+                                    <td><input class="form-control" type="text" value="{{m.NewsChannelName}}" /></td>
                                     <td style="width:2%;"></td>
                                     <td>
                                         <button class="btn btn-danger btn-xs pull-right" id="DeleteFile" name="DeleteFile" type="button" ng-click="Remove($index)">

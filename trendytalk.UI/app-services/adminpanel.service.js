@@ -16,12 +16,12 @@
         //service.Update = Update;
         //service.Delete = Delete;
 
-        return service;       
+        return service;
 
-        function Create(user) {
-            return $http.post(apiPrefix + '/Users/register', user).then(handleSuccess, handleError('Error creating user'));
+        function Create(adminpanel) {
+            return $http.post(apiPrefix + '/api/AdminPanel/saveadminpanel', adminpanel).then(handleSuccess, handleError('Error creating NewsChannel'));
         }
-                
+
         // private functions
 
         function handleSuccess(res) {
